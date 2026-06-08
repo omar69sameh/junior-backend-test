@@ -114,3 +114,61 @@ careers@fekracorp.com
 
 Good luck.
 
+---
+
+## Solution Overview
+
+This repository contains a complete implementation of both challenges.
+
+### Challenge 1 — REST API
+Located in [`challenge-1/`](challenge-1/). See the [Challenge 1 README](challenge-1/README.md) for setup and API usage.
+
+**Implemented:**
+- `POST /auth/login` — JWT authentication
+- `POST /products` — Create product (admin only)
+- `GET /products` — List products with pagination (10/page)
+- `GET /products/:id` — Get single product
+- `PUT /products/:id` — Update product (admin only)
+- `DELETE /products/:id` — Delete product (admin only)
+- Express Validator on POST/PUT
+- JWT auth + admin authorization middleware
+- MongoDB with Mongoose
+
+### Challenge 2 — Query Optimization
+Located in [`challenge-2/`](challenge-2/). See the [Challenge 2 README](challenge-2/README.md).
+
+**Implemented:**
+- PostgreSQL query with price filter, sort, and pagination
+- MongoDB query with category filter, sort, and pagination
+- Optimization notes (indexing, caching, scaling)
+
+### Quick Start
+
+**Option A — Local MongoDB (recommended on Windows if already installed)**
+
+If MongoDB is installed as a Windows service (check: `Get-Service MongoDB`), skip Docker and run:
+
+```powershell
+cd challenge-1
+npm install
+copy .env.example .env
+npm start
+```
+
+**Option B — MongoDB via Docker**
+
+Requires [Docker Desktop](https://www.docker.com/products/docker-desktop/) to be **running** first, then:
+
+```powershell
+docker compose up -d
+cd challenge-1
+npm install
+copy .env.example .env
+npm start
+```
+
+> **Docker error:** `open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified`  
+> Docker Desktop is not running. Either **start Docker Desktop** and retry, or use **Option A** with your local MongoDB service.
+
+API available at `http://localhost:3000`. Demo admin login: `admin` / `admin123`.
+
